@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Vertex Studio — premium web design & development studio crafting luxury digital experiences for ambitious brands." />
+  <meta name="theme-color" content="#2563EB" />
+  <meta property="og:title" content="Vertex Studio — Premium Web Design & Development" />
+  <meta property="og:description" content="We craft luxury digital experiences for ambitious brands." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Vertex Studio — Premium Web Design & Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-ring"></div>
+    <div class="loader-brand">Vertex<span>.</span></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="Vertex Studio home">
+        <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+        <span>Vertex<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Start Project</a>
+        <button class="icon-btn hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Work</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary">Start Project</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="grid-overlay"></div>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <span class="pill"><i class="fa-solid fa-sparkles"></i> Award-winning design studio</span>
+          <h1>Digital experiences that feel <span class="grad-text">effortlessly premium</span>.</h1>
+          <p class="lead">We design and engineer beautiful, high-performing websites for ambitious brands — the kind
+            that turn visitors into lifelong customers.</p>
+          <div class="cta-row">
+            <a href="#contact" class="btn btn-primary">
+              <span>Start a project</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#portfolio" class="btn btn-ghost">
+              <i class="fa-solid fa-play"></i>
+              <span>See our work</span>
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div class="avatars">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div>
+              <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                  class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <small>Trusted by 200+ founders & teams</small>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="glass-card float">
+            <div class="card-head">
+              <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+              <span class="card-title">vertexstudio.com</span>
+            </div>
+            <div class="card-body">
+              <div class="metric">
+                <div>
+                  <small>Conversion rate</small>
+                  <h3>+248%</h3>
+                </div>
+                <div class="spark">
+                  <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+                    <polyline points="0,32 15,28 30,30 45,20 60,22 75,12 90,14 105,6 120,2" fill="none"
+                      stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round" />
+                    <defs>
+                      <linearGradient id="g1" x1="0" x2="1">
+                        <stop offset="0" stop-color="#2563EB" />
+                        <stop offset="1" stop-color="#06B6D4" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="mini-cards">
+                <div class="mini"><i class="fa-solid fa-gauge-high"></i>
+                  <div><small>Perf</small><b>99</b></div>
+                </div>
+                <div class="mini"><i class="fa-solid fa-eye"></i>
+                  <div><small>SEO</small><b>100</b></div>
+                </div>
+                <div class="mini"><i class="fa-solid fa-universal-access"></i>
+                  <div><small>A11y</small><b>98</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-badge b1"><i class="fa-solid fa-award"></i> Design Award '25</div>
+          <div class="floating-badge b2"><i class="fa-solid fa-bolt"></i> 0.8s load</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container two-col">
+        <div class="reveal">
+          <span class="eyebrow">About the studio</span>
+          <h2>A small team obsessed with <span class="grad-text">craft, clarity & speed</span>.</h2>
+          <p>Lumen is a boutique design & engineering studio. We partner with founders and marketing teams to ship
+            websites that don't just look premium — they perform. Every pixel is intentional. Every millisecond matters.
+          </p>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-circle-check"></i> Ship in 3–6 weeks, not months</li>
+          </ul>
+        </div>
+        <div class="reveal about-visual">
+          <div class="tile t1"><i class="fa-solid fa-palette"></i>
+            <h4>Design</h4>
+            <p>Editorial layouts, considered typography, motion with purpose.</p>
+          </div>
+          <div class="tile t2"><i class="fa-solid fa-code"></i>
+            <h4>Engineering</h4>
+            <p>Blazing fast, accessible, and built to scale beautifully.</p>
+          </div>
+          <div class="tile t3"><i class="fa-solid fa-chart-line"></i>
+            <h4>Growth</h4>
+            <p>Conversion-focused strategy backed by real analytics.</p>
+          </div>
+          <div class="tile t4"><i class="fa-solid fa-handshake"></i>
+            <h4>Partnership</h4>
+            <p>Long-term collaboration — we're an extension of your team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section alt" id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why Vertex</span>
+          <h2>Everything you need. Nothing you don't.</h2>
+          <p>We remove the noise so your product's story lands. Here's what makes working with us different.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature reveal"><i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h4>Distinctive design</h4>
+            <p>No templates. Every project is a custom, brand-first visual system.</p>
+          </div>
+          <div class="feature reveal"><i class="fa-solid fa-rocket"></i>
+            <h4>Sub-second speed</h4>
+            <p>Lighthouse 95+ across the board — engineered for Core Web Vitals.</p>
+          </div>
+          <div class="feature reveal"><i class="fa-solid fa-mobile-screen"></i>
+            <h4>Truly responsive</h4>
+            <p>Pixel-perfect on every device from 320px to 4K displays.</p>
+          </div>
+          <div class="feature reveal"><i class="fa-solid fa-lock"></i>
+            <h4>Secure & reliable</h4>
+            <p>Enterprise-grade practices, SSL, and 99.9% uptime baked in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Services</span>
+          <h2>Premium services for modern brands.</h2>
+          <p>End-to-end capabilities to design, build, and grow your digital presence.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card reveal">
+            <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <h3>Brand & Identity</h3>
+            <p>Logos, visual systems, and brand guidelines that scale beautifully across every touchpoint.</p>
+            <a href="#contact" class="link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><i class="fa-solid fa-desktop"></i></div>
+            <h3>Web Design</h3>
+            <p>Editorial, conversion-focused websites with motion, typography, and craft at the core.</p>
+            <a href="#contact" class="link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Development</h3>
+            <p>Modern, framework-free or full-stack builds — accessible, fast, and easy to maintain.</p>
+            <a href="#contact" class="link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h3>E-commerce</h3>
+            <p>Shopify & headless commerce experiences that turn browsers into loyal buyers.</p>
+            <a href="#contact" class="link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h3>SEO & Analytics</h3>
+            <p>Technical SEO, structured data, and analytics that give you clarity on what works.</p>
+            <a href="#contact" class="link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+            <h3>Care & Support</h3>
+            <p>Ongoing design & engineering retainers to evolve your site as your business grows.</p>
+            <a href="#contact" class="link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="section alt" id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2>Recent projects we're proud of.</h2>
+          <p>A glimpse into the brands we've partnered with recently.</p>
+        </div>
+        <div class="portfolio-grid">
+          <figure class="p-item reveal"
+            data-img="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1600&q=80">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=70"
+              alt="Fintech dashboard project" />
+            <figcaption>
+              <h4>Northwind Finance</h4><span>Fintech · Web App</span>
+            </figcaption>
+          </figure>
+          <figure class="p-item reveal"
+            data-img="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1600&q=80">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=800&q=70"
+              alt="Editorial magazine project" />
+            <figcaption>
+              <h4>Atlas Journal</h4><span>Editorial · Publishing</span>
+            </figcaption>
+          </figure>
+          <figure class="p-item reveal"
+            data-img="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=70"
+              alt="Luxury real estate project" />
+            <figcaption>
+              <h4>Maison Ophir</h4><span>Luxury · Real Estate</span>
+            </figcaption>
+          </figure>
+          <figure class="p-item reveal"
+            data-img="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=70"
+              alt="SaaS product project" />
+            <figcaption>
+              <h4>Kite SaaS</h4><span>SaaS · Product</span>
+            </figcaption>
+          </figure>
+          <figure class="p-item reveal"
+            data-img="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=70"
+              alt="Fashion e-commerce project" />
+            <figcaption>
+              <h4>Verve Studio</h4><span>Fashion · E-commerce</span>
+            </figcaption>
+          </figure>
+          <figure class="p-item reveal"
+            data-img="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=70"
+              alt="Hospitality project" />
+            <figcaption>
+              <h4>Rivière Hotel</h4><span>Hospitality · Booking</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Testimonials</span>
+          <h2>Loved by founders & marketing leaders.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <blockquote class="quote reveal">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p>“Lumen delivered a website that finally matches the ambition of our brand. Conversions doubled in the
+              first month.”</p>
+            <footer><b>Priya Rao</b><span>CEO, Northwind Finance</span></footer>
+          </blockquote>
+          <blockquote class="quote reveal">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p>“The most professional studio we've worked with. Every detail felt intentional — from typography to load
+              time.”</p>
+            <footer><b>Marcus Lee</b><span>Head of Growth, Kite</span></footer>
+          </blockquote>
+          <blockquote class="quote reveal">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p>“Design, speed, SEO — they nailed it all. And they're an absolute pleasure to work with day to day.”</p>
+            <footer><b>Elena Rossi</b><span>Founder, Verve Studio</span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+    ``
+    <!-- Stats -->
+    <section class="stats-section">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <h3 class="counter" data-target="248">0</h3>
+          <p>Projects delivered</p>
+        </div>
+        <div class="stat reveal">
+          <h3><span class="counter" data-target="99">0</span></h3>
+          <p>Avg. Lighthouse score</p>
+        </div>
+        <div class="stat reveal">
+          <h3><span class="counter" data-target="42">0</span>+</h3>
+          <p>Countries served</p>
+        </div>
+        <div class="stat reveal">
+          <h3><span class="counter" data-target="12">0</span></h3>
+          <p>Design awards</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions, answered.</h2>
+        </div>
+        <div class="faq">
+          <details class="reveal">
+            <summary>How long does a typical project take?<i class="fa-solid fa-plus"></i></summary>
+            <p>Most engagements ship in 3–6 weeks depending on scope. We'll give you a precise timeline after our
+              discovery call.</p>
+          </details>
+          <details class="reveal">
+            <summary>Do you work with startups?<i class="fa-solid fa-plus"></i></summary>
+            <p>Absolutely. Our Launch plan is designed for early-stage founders who need a premium presence without
+              enterprise overhead.</p>
+          </details>
+          <details class="reveal">
+            <summary>What's included in ongoing care?<i class="fa-solid fa-plus"></i></summary>
+            <p>Design tweaks, new sections, performance monitoring, security patches, and quarterly strategy reviews.
+            </p>
+          </details>
+          <details class="reveal">
+            <summary>Can you migrate our existing site?<i class="fa-solid fa-plus"></i></summary>
+            <p>Yes. We handle migrations from WordPress, Webflow, Squarespace and custom stacks with zero SEO loss.</p>
+          </details>
+          <details class="reveal">
+            <summary>Do you offer payment plans?<i class="fa-solid fa-plus"></i></summary>
+            <p>We split projects into 3 milestones so you pay as we deliver.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section alt" id="contact">
+      <div class="container two-col">
+        <div class="reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Let's build something <span class="grad-text">unforgettable</span>.</h2>
+          <p>Tell us about your project. We reply within one business day.</p>
+          <ul class="contact-list">
+            <li><i class="fa-solid fa-envelope"></i> pranay.gd266@gmail.com</li>
+
+            <li><i class="fa-solid fa-location-dot"></i> Bengaluru · Remote worldwide</li>
+          </ul>
+          <div class="map-placeholder" aria-label="Studio location map">
+            <div class="map-inner">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>Google Maps · Bengaluru, IN</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your full name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@company.com" />
+          </div>
+          <div class="field"><label for="message">Project details</label>
+            <textarea id="message" name="message" rows="5" required
+              placeholder="Tell us about goals, timeline & scope…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full">
+            <span>Send message</span><i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+          <span>Vertex<span class="brand-dot">.</span></span>
+        </a>
+        <p class="muted">Premium web design & development studio crafting modern digital experiences.</p>
+        <div class="socials">
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Careers</a>
+        <a href="#">Journal</a>
+      </div>
+    </div>
+    <div class="container footer-bar">
+      <small>© <span id="year"></span> Vertex Studio. All rights reserved.</small>
+      <small>Crafted with care in Bengaluru.</small>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lbImage" alt="" />
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="to-top" id="toTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="./script.js" defer></script>
+</body>
+
+</html>
