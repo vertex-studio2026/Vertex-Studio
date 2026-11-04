@@ -1,13 +1,11 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 64 64"
+  viewBox="2 2 60 60"
   role="img"
   aria-labelledby="title desc"
 >
   <title id="title">Vertex Studio lightning mark</title>
-  <desc id="desc">
-    A dark lightning bolt inside a bright blue circular badge.
-  </desc>
+  <desc id="desc">A dark lightning bolt inside a green circular badge.</desc>
   <defs>
     <linearGradient
       id="badge"
@@ -17,9 +15,9 @@
       y2="55"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0" stop-color="#2f64ff" />
-      <stop offset="0.48" stop-color="#087dff" />
-      <stop offset="1" stop-color="#05c7df" />
+      <stop offset="0" stop-color="#176b55" />
+      <stop offset="0.48" stop-color="#40ac86" />
+      <stop offset="1" stop-color="#89d4bb" />
     </linearGradient>
     <radialGradient
       id="shine"
@@ -29,8 +27,8 @@
       gradientTransform="translate(22 16) rotate(49) scale(38)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#68c8ff" stop-opacity="0.72" />
-      <stop offset="0.58" stop-color="#68c8ff" stop-opacity="0" />
+      <stop stop-color="#b9efd7" stop-opacity="0.72" />
+      <stop offset="0.58" stop-color="#b9efd7" stop-opacity="0" />
     </radialGradient>
     <filter
       id="bolt-shadow"
@@ -45,7 +43,7 @@
         dx="0"
         dy="2"
         stdDeviation="1.5"
-        flood-color="#07131d"
+        flood-color="#071c15"
         flood-opacity="0.44"
       />
     </filter>
@@ -57,12 +55,13 @@
     cy="32"
     r="29.5"
     fill="none"
-    stroke="#15a8ff"
+    stroke="#62c3a3"
     stroke-opacity="0.55"
   />
   <path
     d="M40.7 8.4 15.4 29.8c-2 1.7-1.2 4.3 1.1 4.9l10.4 2.5-6.6 15.9c-.9 2.2 1.6 3.6 3.4 2l25-22.4c1.8-1.7 1-4.2-1.2-4.8l-10.7-2.8 6.9-14.2c1-2.2-1.2-4-3-2.5Z"
-    fill="#0b1722"
+    fill="#10271f"
     filter="url(#bolt-shadow)"
+    transform="translate(-3.2 -3.2) scale(1.1)"
   />
 </svg>
