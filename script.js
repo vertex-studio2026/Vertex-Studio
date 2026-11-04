@@ -138,7 +138,7 @@ copyEmailButton?.addEventListener("click", async () => {
 // The enquiry form opens a pre-filled email. It does not pretend to submit to a server.
 const contactForm = document.getElementById("contactForm");
 const formStatus = document.getElementById("formStatus");
-const recipient = "pranay.gd266@gmail.com";
+const recipient = "vertexstudio.work2026@gmail.com";
 
 contactForm?.addEventListener("submit", (event) => {
   event.preventDefault();
