@@ -1,124 +1,191 @@
 /* =====================================================
-   Lumen Studio — Interactive behaviors
+   Vertex Studio — lightweight, transparent interactions
    ===================================================== */
 
-// Loading screen
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  setTimeout(() => loader.classList.add('hidden'), 400);
-});
+const siteHeader = document.getElementById("siteHeader");
+const menuButton = document.getElementById("menuButton");
+const mobileMenu = document.getElementById("mobileMenu");
+const themeToggle = document.getElementById("themeToggle");
+const themeColor = document.querySelector('meta[name="theme-color"]');
 
-// Year
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Sticky nav shadow on scroll
-const nav = document.getElementById('nav');
-const toTop = document.getElementById('toTop');
-const onScroll = () => {
-  const y = window.scrollY;
-  nav.classList.toggle('scrolled', y > 20);
-  toTop.classList.toggle('show', y > 500);
+// Add a subtle header divider after the page starts moving.
+const syncHeader = () => {
+  siteHeader?.classList.toggle("is-scrolled", window.scrollY > 8);
 };
-window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener("scroll", syncHeader, { passive: true });
+syncHeader();
 
-// Mobile menu
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  hamburger.setAttribute('aria-expanded', open);
-  hamburger.querySelector('i').className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-});
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  mobileMenu.classList.remove('open');
-  hamburger.querySelector('i').className = 'fa-solid fa-bars';
-}));
-
-// Dark mode
-const themeToggle = document.getElementById('themeToggle');
-const savedTheme = localStorage.getItem('vertex-theme');
-if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-const syncIcon = () => {
-  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-  themeToggle.querySelector('i').className = dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+// Mobile navigation.
+const setMenu = (open) => {
+  if (!menuButton || !mobileMenu) return;
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation",
+  );
+  mobileMenu.hidden = !open;
 };
-syncIcon();
-themeToggle.addEventListener('click', () => {
-  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-  if (dark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('vertex-theme','light'); }
-  else { document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem('vertex-theme','dark'); }
-  syncIcon();
+
+menuButton?.addEventListener("click", () => {
+  setMenu(menuButton.getAttribute("aria-expanded") !== "true");
 });
 
-// Reveal on scroll via IntersectionObserver
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('in'), i * 60);
-      io.unobserve(e.target);
+mobileMenu?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setMenu(false));
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setMenu(false);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1040) setMenu(false);
+});
+
+// Theme preference. The choice is stored only in this browser.
+const getStoredTheme = () => {
+  try {
+    return localStorage.getItem("vertex-theme");
+  } catch {
+    return null;
+  }
+};
+
+const setStoredTheme = (theme) => {
+  try {
+    localStorage.setItem("vertex-theme", theme);
+  } catch {
+    // The theme still works when browser storage is unavailable.
+  }
+};
+
+const applyTheme = (theme) => {
+  const dark = theme === "dark";
+  document.documentElement.toggleAttribute("data-theme", dark);
+  if (dark) document.documentElement.setAttribute("data-theme", "dark");
+  if (themeToggle)
+    themeToggle.setAttribute(
+      "aria-label",
+      dark ? "Switch to light theme" : "Switch to dark theme",
+    );
+  if (themeColor)
+    themeColor.setAttribute("content", dark ? "#0e1714" : "#f6f7f3");
+};
+
+const preferredTheme =
+  getStoredTheme() ||
+  (window.matchMedia?.("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light");
+applyTheme(preferredTheme);
+
+themeToggle?.addEventListener("click", () => {
+  const nextTheme =
+    document.documentElement.getAttribute("data-theme") === "dark"
+      ? "light"
+      : "dark";
+  applyTheme(nextTheme);
+  setStoredTheme(nextTheme);
+});
+
+// Keep one FAQ answer open at a time so the list remains easy to scan.
+document.querySelectorAll(".faq-list details").forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (!item.open) return;
+    document.querySelectorAll(".faq-list details").forEach((otherItem) => {
+      if (otherItem !== item) otherItem.open = false;
+    });
+  });
+});
+
+// Copy the published email address without collecting any user data.
+const copyEmailButton = document.getElementById("copyEmail");
+const fallbackCopy = (text) => {
+  const input = document.createElement("textarea");
+  input.value = text;
+  input.setAttribute("readonly", "");
+  input.style.position = "fixed";
+  input.style.opacity = "0";
+  document.body.appendChild(input);
+  input.select();
+  const copied = document.execCommand("copy");
+  input.remove();
+  return copied;
+};
+
+copyEmailButton?.addEventListener("click", async () => {
+  const email = copyEmailButton.dataset.email;
+  let copied = false;
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(email);
+      copied = true;
+    } else {
+      copied = fallbackCopy(email);
     }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } catch {
+    copied = fallbackCopy(email);
+  }
 
-// Animated counters
-const counterIO = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = +el.dataset.target;
-    const duration = 1600;
-    const start = performance.now();
-    const tick = (now) => {
-      const p = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.floor(eased * target).toLocaleString();
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-    counterIO.unobserve(el);
-  });
-}, { threshold: 0.4 });
-document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
-
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lbImage = document.getElementById('lbImage');
-const lbClose = document.getElementById('lbClose');
-document.querySelectorAll('.p-item').forEach(item => {
-  item.addEventListener('click', () => {
-    lbImage.src = item.dataset.img;
-    lbImage.alt = item.querySelector('img').alt;
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden','false');
-  });
-});
-const closeLb = () => { lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden','true'); lbImage.src=''; };
-lbClose.addEventListener('click', closeLb);
-lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
-
-// Scroll to top
-toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-// Contact form
-const form = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const message = form.message.value.trim();
-  if (!name || !email || !message) { formNote.textContent = 'Please fill out all required fields.'; formNote.style.color = '#ef4444'; return; }
-  if (!/^\S+@\S+\.\S+$/.test(email)) { formNote.textContent = 'Please enter a valid email address.'; formNote.style.color = '#ef4444'; return; }
-  formNote.style.color = '';
-  formNote.textContent = 'Thanks! We\'ll get back to you within one business day.';
-  form.reset();
+  const originalLabel = "Copy email";
+  copyEmailButton.textContent = copied ? "Email copied" : "Copy failed";
+  window.setTimeout(() => {
+    copyEmailButton.textContent = originalLabel;
+  }, 1800);
 });
 
-// Smooth close of open <details> siblings (single-open FAQ)
-document.querySelectorAll('.faq details').forEach(d => {
-  d.addEventListener('toggle', () => {
-    if (d.open) document.querySelectorAll('.faq details').forEach(o => { if (o !== d) o.open = false; });
-  });
+// The enquiry form opens a pre-filled email. It does not pretend to submit to a server.
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+const recipient = "pranay.gd266@gmail.com";
+
+contactForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  formStatus?.classList.remove("is-error");
+
+  if (!contactForm.checkValidity()) {
+    contactForm.reportValidity();
+    if (formStatus) {
+      formStatus.textContent =
+        "Please complete the required fields before creating your email.";
+      formStatus.classList.add("is-error");
+    }
+    return;
+  }
+
+  const data = new FormData(contactForm);
+  const name = String(data.get("name") || "").trim();
+  const email = String(data.get("email") || "").trim();
+  const business = String(data.get("business") || "").trim();
+  const projectType = String(data.get("projectType") || "").trim();
+  const budget = String(data.get("budget") || "").trim();
+  const message = String(data.get("message") || "").trim();
+
+  const subject = `Website enquiry — ${business || name}`;
+  const body = [
+    "Hello Vertex Studio,",
+    "",
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Business / organisation: ${business || "Not provided"}`,
+    `Project type: ${projectType}`,
+    `Approximate budget: ${budget}`,
+    "",
+    "Project details:",
+    message,
+    "",
+    "Thank you,",
+  ].join("\n");
+
+  const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  if (formStatus) {
+    formStatus.textContent =
+      "Opening your email app. Review the message there, then press send.";
+  }
+  window.location.href = mailto;
 });
+
+// Current year in the footer.
+const year = document.getElementById("year");
+if (year) year.textContent = String(new Date().getFullYear());
